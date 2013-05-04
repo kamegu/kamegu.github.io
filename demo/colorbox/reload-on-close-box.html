@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+　　<meta charset="UTF-8">
+　　<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+  <p>
+    <input type="button" id="btn-close" value="閉じる（リロードはしない）"/>
+  </p>
+  <p>
+    <input type="button" id="btn-reload" value="閉じる（親ウィンドウをリロード）"/>
+  </p>
+</body>
+<script>
+function closeBox() {
+  parent.$.colorbox.close();
+}
+$(function(){
+  $('#btn-close').click(function(){
+    closeBox();
+  });
+  $('#btn-reload').click(function(){
+    parent.$.colorbox.reloadOnClosed();
+    closeBox();
+  });
+});
+</script>
+</html>

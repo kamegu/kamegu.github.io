@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+　　<meta charset="UTF-8">
+　　<link rel="stylesheet" href="/lib/colorbox/colorbox.css" />
+　　<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+　　<script src="/lib/colorbox/jquery.colorbox-min.js"></script>
+</head>
+<script>
+if (jQuery && jQuery.colorbox) {
+	jQuery.colorbox.reloadOnClosedSettings = {
+		reloadFunc: function() {location.reload(true);},
+		needReloadParent: false
+	};
+	jQuery.colorbox.reloadOnClosed = function(options) {
+		var reloadOnClosedSettings = jQuery.colorbox.reloadOnClosedSettings;
+		if (options === undefined) {
+			reloadOnClosedSettings.needReloadParent = true;
+			return;
+		};
+		if (options.needReloadParent === true || options.needReloadParent === false) {
+			reloadOnClosedSettings.needReloadParent = options.needReloadParent;
+		}
+		if (options.reloadFunc && (typeof options.reloadFunc === "function")) {
+			reloadOnClosedSettings.reloadFunc = options.reloadFunc;
+		} else if (options.reloadFunc === null) {
+			reloadOnClosedSettings.reloadFunc = null;
+		}
+	};
+	jQuery(document).on('cbox_open', function(){
+		jQuery.colorbox.reloadOnClosedSettings.needReloadParent = false;
+	});
+	jQuery(document).on('cbox_closed', function(){
+		var reloadOnClosedSettings = jQuery.colorbox.reloadOnClosedSettings;
+		if (reloadOnClosedSettings.needReloadParent === true && reloadOnClosedSettings.reloadFunc && (typeof reloadOnClosedSettings.reloadFunc === "function")) {
+			reloadOnClosedSettings.reloadFunc();
+		}
+	});
+}
+</script>
+<body>
+  <div id="message" style="color: red;"></div>
+  <p>
+    下のボタンをクリックすれば<a href="http://www.jacklmoore.com/colorbox/">colorbox</a>のモーダルウィンドウをiframeで開きます。
+    モーダルウィンドウ内の閉じるボタンをクリックして親ウィンドウのリロードを行うでも画面です。
+  </p>
+  <p>
+    <input type="button" class="cbox iframe" value="iframeで開く"/>
+  </p>
+  <p>
+    jQuery1.9 + colorbox1.4.15を使用しています。
+  </p>
+</body>
+<script>
+$(function(){
+  $('.cbox.iframe').colorbox({iframe:true, width:"300px", height:"300px",
+    href:"reload-on-close-box.html",
+    onOpen: function(){
+      $('#message').html('モーダルウィンドウが開きました。');
+    },
+    onClosed: function(){
+      $('#message').html($('#message').html() + "リロードされていません");
+    }
+  });
+});
+</script>
+</html>
