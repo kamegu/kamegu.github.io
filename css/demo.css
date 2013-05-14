@@ -1,0 +1,24 @@
+body {
+	font-size: 13px;
+}
+div#demo-container {
+	width: 800px;
+	margin: 0 auto;
+}
+div#main {
+	float:right;
+	width:650px;
+}
+div#sidebar {
+	float:left;
+	width:150px;
+}
+div.demo-block {
+	border: solid 1px #0095d9;
+	background-color: #eaf4fc;
+	margin: 5px;
+}
+.ui-menu {
+	width: 130px;
+	font-size: 1.1em;
+}
