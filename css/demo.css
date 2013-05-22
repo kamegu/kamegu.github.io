@@ -12,11 +12,19 @@ div#main {
 div#sidebar {
 	float:left;
 	width:150px;
+	position: fixed;
 }
 div.demo-block {
 	border: solid 1px #0095d9;
 	background-color: #eaf4fc;
 	margin: 5px;
+}
+div.demo-block-src {
+	margin: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border: solid 1px #888;
+	background-color: #CCC;
 }
 .ui-menu {
 	width: 130px;

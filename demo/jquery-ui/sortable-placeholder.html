@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="/css/demo.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script src="/js/demo.js"></script>
+	<title>jQuery UI sortable (placeholder)</title>
+</head>
+<body>
+
+<div class="demo-block">
+	<h2>placeholderの使い方 (placeholderオプション指定のみ)</h2>
+<style>
+#sortable-with-placeholder1 {
+	padding: 0;
+    list-style-type: none;
+    width: 50%;
+}
+.placeholder1 {
+	border: 1px dashed red;
+	background-color: pink;
+}
+</style>
+<script>
+$(function(){
+	$('#sortable-with-placeholder1').sortable({placeholder: "placeholder1"});
+});
+</script>
+	<a href="#" id="placeholder1-on">placeholderオン</a>
+	<a href="#" id="placeholder1-off">placeholderオフ</a>
+	<ul id="sortable-with-placeholder1">
+		<li class="ui-state-default">項目 1</li>
+		<li class="ui-state-default">項目 2</li>
+		<li class="ui-state-default">項目 3</li>
+		<li class="ui-state-default">項目 4</li>
+		<li class="ui-state-default">項目 5</li>
+	</ul>
+</div>
+
+<div class="demo-block">
+	<h2>placeholderの使い方 （CSSでheight指定）</h2>
+<style>
+#sortable-with-placeholder2 {
+	padding: 0;
+    list-style-type: none;
+    width: 50%;
+}
+#sortable-with-placeholder2 li {
+	height: 15px;
+}
+.placeholder2 {
+	border: 1px dashed red;
+	background-color: pink;
+	height: 15px;
+}
+</style>
+<script>
+$(function(){
+	$('#sortable-with-placeholder2').sortable({placeholder: "placeholder2"});
+});
+</script>
+	<ul id="sortable-with-placeholder2">
+		<li class="ui-state-default">項目 1</li>
+		<li class="ui-state-default">項目 2</li>
+		<li class="ui-state-default">項目 3</li>
+		<li class="ui-state-default">項目 4</li>
+		<li class="ui-state-default">項目 5</li>
+	</ul>
+</div>
+
+<div class="demo-block">
+	<h2>placeholderの使い方 （forcePlaceholderSizeオプション指定）</h2>
+<style>
+#sortable-with-placeholder3 {
+	padding: 0;
+    list-style-type: none;
+    width: 50%;
+}
+.placeholder3 {
+	border: 1px dashed red;
+	background-color: pink;
+}
+</style>
+<script>
+$(function(){
+	$('#sortable-with-placeholder3').sortable({placeholder: "placeholder3", forcePlaceholderSize: true});
+});
+</script>
+	<ul id="sortable-with-placeholder3">
+		<li class="ui-state-default">項目 1</li>
+		<li class="ui-state-default">項目 2</li>
+		<li class="ui-state-default">項目 3</li>
+		<li class="ui-state-default">項目 4</li>
+		<li class="ui-state-default">項目 5</li>
+	</ul>
+</div>
+
+	<div class="demo-info">
+		<a href="http://kamegu.hateblo.jp/archive/category/jquery-ui">ブログ</a>
+	</div>
+</body>
+
+<script>
+$(function(){
+	buttonsOnOff('placeholder1-on', 'placeholder1-off', {
+		onchange : function(active){
+			var className = active ? "placeholder1" : "";
+			$('#sortable-with-placeholder1').sortable("option", "placeholder", className);
+		}
+	})
+
+	initDemoPage($);
+});
+</script>
+
+</html>
