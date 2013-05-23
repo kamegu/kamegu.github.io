@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="/css/demo.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script src="/js/demo.js"></script>
+	<title>jQuery UI sortable (connectWith)</title>
+</head>
+<body>
+
+<div class="demo-block">
+	<h2>connectWithオプション</h2>
+	<p>A-?の一覧からB-?の一覧に要素を挿入できます。逆はできません。</p>
+<style>
+.sortable-li {
+	padding: 0;
+	list-style-type: none;
+	width: 50%;
+}
+</style>
+<script>
+$(function(){
+	$('#sortable-li-src').sortable({connectWith: "#sortable-li-dst"});
+	$('#sortable-li-dst').sortable();
+});
+</script>
+	<ul id="sortable-li-src" class="sortable-li">
+		<li class="ui-state-default">項目 A-1</li>
+		<li class="ui-state-default">項目 A-2</li>
+		<li class="ui-state-default">項目 A-3</li>
+		<li class="ui-state-default">項目 A-4</li>
+	</ul>
+
+	<ul id="sortable-li-dst" class="sortable-li">
+		<li class="ui-state-default">項目 B-1</li>
+		<li class="ui-state-default">項目 B-2</li>
+		<li class="ui-state-default">項目 B-3</li>
+		<li class="ui-state-default">項目 B-4</li>
+	</ul>
+
+<!-- srcここから -->
+<div class="demo-block-src">html
+<pre class="brush: xml">
+<ul id="sortable-li-src" class="sortable-li">
+	<li class="ui-state-default">項目 A-1</li>
+	<li class="ui-state-default">項目 A-2</li>
+	<li class="ui-state-default">項目 A-3</li>
+	<li class="ui-state-default">項目 A-4</li>
+</ul>
+
+<ul id="sortable-li-dst" class="sortable-li">
+	<li class="ui-state-default">項目 B-1</li>
+	<li class="ui-state-default">項目 B-2</li>
+	<li class="ui-state-default">項目 B-3</li>
+	<li class="ui-state-default">項目 B-4</li>
+</ul>
+</pre>
+</div>
+<!-- srcここまで -->
+
+</div>
+
+<div class="demo-info">
+	<a href="http://kamegu.hateblo.jp/archive/category/jquery-ui">ブログ</a>
+</div>
+</body>
+
+<script>
+$(function(){
+	initDemoPage($);
+});
+</script>
+</html>

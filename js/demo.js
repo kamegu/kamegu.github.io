@@ -13,6 +13,7 @@
 		$('head').append($('<script>').attr('src','/lib/syntaxhighlighter/scripts/shCore.js'));
 		$('head').append($('<script>').attr('src','/lib/syntaxhighlighter/scripts/shBrushJScript.js'));
 		$('head').append($('<script>').attr('src','/lib/syntaxhighlighter/scripts/shBrushCss.js'));
+		$('head').append($('<script>').attr('src','/lib/syntaxhighlighter/scripts/shBrushXml.js'));
 	}
 })($);
 
@@ -45,23 +46,39 @@ function _initDemoPage($) {
 		return;
 	}
 	$('div.demo-block').each(function(){
-		$block = $(this);
-		$js = $block.find('script');
-		$css = $block.find('style');
-		if ($js.length != 0 || $css.length != 0) {
-			$blockSrc = $('<div>').addClass("demo-block-src");
-			if ($js.length != 0) {
-				$blockSrc.append('<p>javascript:</p>')
-					.append($('<pre>').addClass("brush: js").html($js.html()));
-			}
-			if ($css.length != 0) {
-				$blockSrc.append('<p>CSS:</p>')
-					.append($('<pre>').addClass("brush: css").html($css.html()));
-			}
+		var $block = $(this);
+		var $js = $block.find('script');
+		var $css = $block.find('style');
+		if ($js.length != 0) {
+			var $blockSrc = $('<div>').addClass("demo-block-src");
+			$blockSrc.append('javascript:')
+				.append($('<pre>').addClass("brush: js").html($js.html()));
 			$block.append($blockSrc);
 		}
+		if ($css.length != 0) {
+			var $blockSrc = $('<div>').addClass("demo-block-src");
+			$blockSrc.append('CSS:')
+				.append($('<pre>').addClass("brush: css").html($css.html()));
+			$block.append($blockSrc);
+		}
+
+		if ($block.find('.demo-block-src').length != 0) {
+			var $srcButton = $('<a>').text('ソースを表示');
+			$block.find('.demo-block-src').eq(0).before($srcButton);
+			$srcButton.data('srcVisible', false);
+			$srcButton.button().click(function(){
+				var srcVisible = !$srcButton.data('srcVisible');
+				$block.find('.demo-block-src').toggle(srcVisible);
+				$(this).button('option', 'label', srcVisible ? 'ソースを非表示' : 'ソースを表示');
+				$srcButton.data('srcVisible', srcVisible);
+			});
+		}
 	});
-	SyntaxHighlighter.all();
+
+	if ($('.demo-block-src').length != 0) {
+		SyntaxHighlighter.all();
+	}
+
 	$.ajax({
 		url: "/demo/demo.html",
 		dataType: "html",

@@ -25,6 +25,7 @@ div.demo-block-src {
 	padding-right: 5px;
 	border: solid 1px #888;
 	background-color: #CCC;
+	display: none;
 }
 .ui-menu {
 	width: 130px;

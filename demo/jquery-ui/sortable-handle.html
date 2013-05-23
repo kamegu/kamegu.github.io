@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="/css/demo.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script src="/js/demo.js"></script>
+	<title>jQuery UI sortable (handle)</title>
+</head>
+<body>
+
+<div class="demo-block">
+	<h2>handleオプション</h2>
+	<p>
+		<a class="ui-state-default ui-corner-all ui-button sortable-handle">
+			<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+		</a>
+		だけクリックしてだラッグで並び替えが可能です。
+		項目名や余白や
+		<button class="ui-state-default ui-corner-all ui-button sortable-handle">
+			<span class="ui-icon ui-icon-arrow-2-n-s"></span>
+		</button>
+		もクリックしても並び替えできません。<br>
+		アイコンは両方とも"sortable-handle"クラスを指定していますが、前者はaタグで後者はbuttonタグとなっておりデフォルトではbuttonタグを使って並び替えできません。これはcancelオプションで変更できます。
+	</p>
+<style>
+.sortable-li {
+	padding: 0;
+	list-style-type: none;
+	width: 50%;
+}
+</style>
+<script>
+$(function(){
+	$('#sortable-with-handle1').sortable({handle: ".sortable-handle"});
+});
+</script>
+	<ul id="sortable-with-handle1" class="sortable-li">
+		<li class="ui-state-default">
+			<a class="ui-state-default ui-corner-all ui-button sortable-handle">
+				<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+			</a>
+			項目 1
+			<button class="ui-state-default ui-corner-all ui-button sortable-handle">
+				<span class="ui-icon ui-icon-arrow-2-n-s"></span>
+			</button>
+		</li>
+		<li class="ui-state-default">
+			<a class="ui-state-default ui-corner-all ui-button sortable-handle">
+				<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+			</a>
+			項目 2
+			<button class="ui-state-default ui-corner-all ui-button sortable-handle">
+				<span class="ui-icon ui-icon-arrow-2-n-s"></span>
+			</button>
+		</li>
+		<li class="ui-state-default">
+			<a class="ui-state-default ui-corner-all ui-button sortable-handle">
+				<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+			</a>
+			項目 3
+			<button class="ui-state-default ui-corner-all ui-button sortable-handle">
+				<span class="ui-icon ui-icon-arrow-2-n-s"></span>
+			</button>
+		</li>
+		<li class="ui-state-default">
+			<a class="ui-state-default ui-corner-all ui-button sortable-handle">
+				<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+			</a>
+			項目 4
+			<button class="ui-state-default ui-corner-all ui-button sortable-handle">
+				<span class="ui-icon ui-icon-arrow-2-n-s"></span>
+			</button>
+		</li>
+	</ul>
+
+<!-- srcここから -->
+<div class="demo-block-src">html
+<pre class="brush: xml">
+<ul id="sortable-with-handle1" class="sortable-li">
+	<li class="ui-state-default">
+		<a class="ui-state-default ui-corner-all ui-button sortable-handle">
+			<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+		</a>
+		項目 1
+		<button class="ui-state-default ui-corner-all ui-button sortable-handle">
+			<span class="ui-icon ui-icon-arrow-2-n-s"></span>
+		</button>
+	</li>
+	～～略～～
+</ul>
+</pre>
+</div>
+<!-- srcここまで -->
+</div>
+
+<div class="demo-info">
+	<a href="http://kamegu.hateblo.jp/archive/category/jquery-ui">ブログ</a>
+</div>
+</body>
+
+<script>
+$(function(){
+	initDemoPage($);
+});
+</script>
+</html>
