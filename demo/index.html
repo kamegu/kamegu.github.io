@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="/css/demo.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script src="/js/demo.js"></script>
+	<title>kamegu demo index</title>
+</head>
+<body>
+
+<div class="demo-info">
+	<a href="http://kamegu.hateblo.jp/archive/category/jquery-ui">ブログ</a>
+</div>
+</body>
+
+<script>
+$(function(){
+	initDemoPage($);
+
+	if (typeof(_initDemoPage) === "function") {
+		_initDemoPage($);
+	}
+});
+</script>
+</html>
