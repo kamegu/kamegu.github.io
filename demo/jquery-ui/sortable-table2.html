@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="/css/demo.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script src="/js/demo.js"></script>
+	<title>jQuery UI sortable(table 2)</title>
+</head>
+<body>
+
+<div class="demo-block">
+	<h2>helperを指定してドラッグ中の要素を見易く</h2>
+	<p></p>
+<style>
+#sortable-table1 {
+	width: 50%;
+	border-collapse: collapse;
+}
+#sortable-table1 td, #sortable-table1 th {
+	border: solid 1px black;
+}
+</style>
+<script>
+$(function(){
+	$('#sortable-table1 tbody').sortable({helper: helper1, cursor: "move", opacity: 0.5});
+});
+function helper1(e, tr) {
+	var $originals = tr.children();
+	var $helper = tr.clone();
+	$helper.children().each(function(index) {
+		$(this).width($originals.eq(index).width());
+	});
+	return $helper;
+}
+</script>
+	<table id="sortable-table1">
+		<thead>
+			<tr>
+				<th>番号</th>
+				<th>項目</th>
+				<th>備考</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td><td>項目1</td><td></td>
+			</tr>
+			<tr>
+				<td>2</td><td>項目2</td><td></td>
+			</tr>
+			<tr>
+				<td>3</td><td>項目3</td><td>なし</td>
+			</tr>
+			<tr>
+				<td>4</td><td>項目4</td><td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="demo-info">
+	<a href="http://kamegu.hateblo.jp/archive/category/jquery-ui">ブログ</a>
+</div>
+</body>
+
+<script>
+$(function(){
+	initDemoPage($);
+});
+</script>
+</html>

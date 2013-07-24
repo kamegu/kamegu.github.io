@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css">
+	<link rel="stylesheet" href="/css/demo.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script src="/js/demo.js"></script>
+	<title>jQuery UI sortable(table)</title>
+</head>
+<body>
+
+<div class="demo-block">
+	<h2>tbodyに対してsortable()を呼ぶ</h2>
+	<p></p>
+<style>
+#sortable-table1 {
+	width: 50%;
+	border-collapse: collapse;
+}
+#sortable-table1 td, #sortable-table1 th {
+	border: solid 1px black;
+}
+</style>
+<script>
+$(function(){
+	$('#sortable-table1 tbody').sortable();
+});
+</script>
+	<table id="sortable-table1">
+		<thead>
+			<tr>
+				<th>番号</th>
+				<th>項目</th>
+				<th>備考</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td><td>項目1</td><td></td>
+			</tr>
+			<tr>
+				<td>2</td><td>項目2</td><td></td>
+			</tr>
+			<tr>
+				<td>3</td><td>項目3</td><td>なし</td>
+			</tr>
+			<tr>
+				<td>4</td><td>項目4</td><td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="demo-block">
+	<h2>itemsオプションに"tbody tr"を指定</h2>
+	<p></p>
+<style>
+#sortable-table2 {
+	width: 50%;
+	border-collapse: collapse;
+}
+#sortable-table2 td, #sortable-table2 th {
+	border: solid 1px black;
+}
+</style>
+<script>
+$(function(){
+	$('#sortable-table2').sortable({"items": "tbody tr"});
+});
+</script>
+	<table id="sortable-table2">
+		<thead>
+			<tr>
+				<th>番号</th>
+				<th>項目</th>
+				<th>備考</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td><td>項目1</td><td></td>
+			</tr>
+			<tr>
+				<td>2</td><td>項目2</td><td></td>
+			</tr>
+			<tr>
+				<td>3</td><td>項目3</td><td>なし</td>
+			</tr>
+			<tr>
+				<td>4</td><td>項目4</td><td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="demo-block">
+	<h2>並び替え可能な項目にcssクラスを設定</h2>
+	<p>itemsオプションでそのクラスを指定</p>
+<style>
+#sortable-table3 {
+	width: 50%;
+	border-collapse: collapse;
+}
+#sortable-table3 td, #sortable-table3 th {
+	border: solid 1px black;
+}
+</style>
+<script>
+$(function(){
+	$('#sortable-table3').sortable({"items": "tr.sortable-tr"});
+});
+</script>
+	<table id="sortable-table3">
+			<tr>
+				<th>番号</th>
+				<th>項目</th>
+				<th>備考</th>
+			</tr>
+			<tr class="sortable-tr">
+				<td>1</td><td>項目1</td><td></td>
+			</tr>
+			<tr class="sortable-tr">
+				<td>2</td><td>項目2</td><td></td>
+			</tr>
+			<tr class="sortable-tr">
+				<td>3</td><td>項目3</td><td>なし</td>
+			</tr>
+			<tr class="sortable-tr">
+				<td>4</td><td>項目4</td><td></td>
+			</tr>
+			<tr>
+				<td>5</td><td>並び替え不可</td><td></td>
+			</tr>
+	</table>
+</div>
+
+<div class="demo-block">
+	<h2>並び替え不可とする項目にcssクラスを設定</h2>
+	<p>itemsオプションでそのクラスを除外するように指定(:not(selector)を使用)</p>
+<style>
+#sortable-table4 {
+	width: 50%;
+	border-collapse: collapse;
+}
+#sortable-table4 td, #sortable-table4 th {
+	border: solid 1px black;
+}
+</style>
+<script>
+$(function(){
+	$('#sortable-table4 tbody').sortable({"items": "tr:not(.not-sortable-tr)"});
+});
+</script>
+	<table id="sortable-table4">
+		<thead>
+			<tr>
+				<th>番号</th>
+				<th>項目</th>
+				<th>備考</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td><td>項目1</td><td></td>
+			</tr>
+			<tr>
+				<td>2</td><td>項目2</td><td></td>
+			</tr>
+			<tr>
+				<td>3</td><td>項目3</td><td>なし</td>
+			</tr>
+			<tr>
+				<td>4</td><td>項目4</td><td></td>
+			</tr>
+			<tr class="not-sortable-tr">
+				<td>5</td><td>並び替え不可</td><td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="demo-info">
+	<a href="http://kamegu.hateblo.jp/archive/category/jquery-ui">ブログ</a>
+</div>
+</body>
+
+<script>
+$(function(){
+	initDemoPage($);
+});
+</script>
+</html>
